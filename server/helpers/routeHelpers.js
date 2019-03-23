@@ -31,10 +31,13 @@ module.exports = {
     // make a schema for authentication
     authSchema: Joi.object().keys({
       // specify all properties to validate
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-      recipes: Joi.string()
+      email: Joi.string().email(),
+      password: Joi.string(),
+      recipesName: Joi.string(),
+      recipesIngredients: Joi.string(),
+      recipesTime: Joi.string(),
+      recipesInstructions: Joi.string(),
+      recipesImage: Joi.string()
     })
-
   }
 }

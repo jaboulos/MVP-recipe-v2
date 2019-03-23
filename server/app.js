@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 
 app.get('/recipes',  (req, res, next) => {
     User.find({}, (err, data) => {})
-    .limit(10)
+    .limit(1)
     .then((data) => {
       res.send(data);
     })
@@ -41,6 +41,20 @@ app.get('/recipes',  (req, res, next) => {
   }
 )
 
+app.get('/random',  (req, res) => {
+  // get a count of all the recipes
+  User.count().exec(function(err, count) {
+    // get a random recipe
+    var random = Math.floor(Math.random() * count)
+    // query all the recipes but fetch one
+    User.findOne().skip(random).limit(1).exec(
+      function(err, result) {
+        res.send([result])
+      }
+    )
+  })
+  }
+)
 
 // start the server
 const port = process.env.PORT || 5000;

@@ -10,6 +10,7 @@ import SignIn from '../src/components/SignIn';
 import Dashboard from '../src/components/Dashboard';
 // import Recipes from './components/Recipes';
 import UserPage from '../src/components/UserPage';
+import RandomRecipe from '../src/components/RandomRecipe';
 
 // ReactDOM.render(
 //     <BrowserRouter>
@@ -33,6 +34,7 @@ ReactDOM.render(
       {/* <Route exact path="/recipes" component={Recipes}/> */}
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/userpage" component={UserPage}/>
+      <Route exact path="/randomrecipe" component={RandomRecipe}/>
     </App>
   </BrowserRouter>,
 document.querySelector('#root'));

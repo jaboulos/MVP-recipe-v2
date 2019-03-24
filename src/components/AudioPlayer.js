@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { FormGroup, FormControl, InputGroup, Button } from 'react-bootstrap';
-
+import Profile from './Profile';
 
 // spotify endpoint, dont need api key
 // https://api.spotify.com/v1/search
@@ -114,10 +114,13 @@ search() {
             <Button onClick={()=> this.search()}>PLAY SOME MUSIC!</Button>
           </InputGroup>
         </FormGroup>
-        <div className="Profile">
+        {/* <div className="Profile">
           <div>Artist: {artist.name}</div>
           <div>Followers: {artist.followers.total}</div>
-        </div>
+        </div> */}
+        <Profile
+          artist={this.state.artist}
+        />
         <div className="Gallery">
           Gallery
         </div>

@@ -12,6 +12,7 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "express-promise-router": "^3.0.3",
+    "faker": "^4.1.0",
     "joi": "^14.3.1",
     "jquery": "^3.3.1",
     "jsonwebtoken": "^8.5.1",
@@ -21,6 +22,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "react": "^16.8.5",
+    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.5",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
@@ -40,7 +42,8 @@
     "eject": "react-scripts eject",
     "server-dev": "nodemon server/app.js",
     "client-dev": "npm start",
-    "start-dev": "concurrently \"npm run server-dev\" \"npm run client-dev\""
+    "start-dev": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
+    "seed": "node ./fakedata.js"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {

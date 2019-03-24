@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 
 import Recipes from './Recipes';
@@ -12,6 +12,7 @@ class UserPage extends Component {
       recipeList: [],
       view: 'main',
     };
+    // this.randomRecipe = this.randomRecipe.bind(this)
   }
 
   componentDidMount() {
@@ -35,6 +36,27 @@ class UserPage extends Component {
       });
   }
 
+  // randomRecipe() {
+  //     axios.get('/random', {
+  //       method: 'GET',
+  //       mode: 'no-cors',
+  //       headers: {
+  //         'Access-Control-Allow-Origin': '*',
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+  //       .then((res) => {
+  //         // eslint-disable-next-line prefer-destructuring
+  //         const data = res.data;
+  //         this.setState({
+  //           recipeList: data,
+  //         });
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  // }
+
   renderView() {
     // const { schedule, ramsFeed, view } = this.state;
     const { recipeList, view } = this.state;
@@ -43,7 +65,9 @@ class UserPage extends Component {
         <div id="recipes">
           <Recipes
             recipeList={recipeList}
+            // randomRecipe={this.randomRecipe}
           />
+        <button><Link className="navbar-brand" to="/randomrecipe">GENERATE A RECIPE!!!!!</Link></button>
         </div>
       );
     }

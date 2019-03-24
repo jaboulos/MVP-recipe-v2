@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import { FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
 
 class AudioPlayer extends Component {
   render() {
@@ -17,9 +17,10 @@ class AudioPlayer extends Component {
               placeholder="Search for an artist..."
               />
               {/* react-bootstrap has some cool add-ons, this inputgroup.add-on changes the button icon on this form, find more in the react bootstrap documentation library */}
-            <InputGroup.Addon>
+            {/* <InputGroup.Addon>
               <Glyphicon glyph="search"></Glyphicon>
-            </InputGroup.Addon>
+            </InputGroup.Addon> */}
+            <Button>PLAY SOME MUSIC!</Button>
           </InputGroup>
         </FormGroup>
         <div className="Profile">

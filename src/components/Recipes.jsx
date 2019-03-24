@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { listenerCount } from 'cluster';
 import '../App.css';
 
@@ -8,7 +8,7 @@ const Recipes = ({recipeList}) => (
 
       <tbody>
         {recipeList.map(item =>(
-          <tr key={item.id}>
+          <tr key={item._id}>
             <td>
               <div>
                 <img className="rounded-circle" width={300} height={300} src={`${item.recipeImage}`} />

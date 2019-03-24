@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import { FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
+// import { FormGroup, FormControl, InputGroup, Glyphicon, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 

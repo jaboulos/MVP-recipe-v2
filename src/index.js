@@ -12,18 +12,6 @@ import Dashboard from '../src/components/Dashboard';
 import UserPage from '../src/components/UserPage';
 import RandomRecipe from '../src/components/RandomRecipe';
 
-// ReactDOM.render(
-//     <BrowserRouter>
-//       <App>
-//         <Route exact path="/" component={Homepage}/>
-//         {/* <Route exact path="/signup" component={SignUp}/> */}
-//         <Route exact path="/signin" component={SignIn}/>
-//         <Route exact path="/dashboard" component={Dashboard}/>
-//       </App>
-//     </BrowserRouter>,
-//   document.querySelector('#root'));
-
-// serviceWorker.unregister();
 
 ReactDOM.render(
   <BrowserRouter>

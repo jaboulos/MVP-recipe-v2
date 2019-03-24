@@ -1,0 +1,26 @@
+.Audioplayer {
+  /* background: #000; */
+  color: #fff;
+  background-image: linear-gradient(rgb(56, 95, 255), rgb(133, 201, 197));
+  text-align: center;
+  padding: 5%;
+}
+
+.Audioplayer-title {
+  font-size: 28px
+}
+
+.recipe-page {
+  text-align: center;
+  padding: 5%;
+}
+
+.random-recipe {
+  text-align: center;
+  padding: 5%;
+}
+
+.random-button {
+  text-align: center;
+  color: #fff;
+}

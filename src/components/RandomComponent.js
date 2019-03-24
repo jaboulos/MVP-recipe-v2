@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import '../App.css';
 // import { listenerCount } from 'cluster';
 
 const RandomComponent = ({randomList}) => (
-  <div>
+  <div className="random-recipe">
     <table className="table">
       <tbody>
         {randomList.map(item =>(
           <tr key={item.id}>
             <td>
               <div>
-                <img className="rounded-circle" width={400} height={400} src={`${item.recipeImage}`} />
+                <img className="rounded-circle" width={300} height={300} src={`${item.recipeImage}`} />
               </div>
               <div>
                 <h2><strong>RECIPE SUBMITTED BY:<h5>{item.email}</h5> </strong></h2>
@@ -32,7 +33,6 @@ const RandomComponent = ({randomList}) => (
         ))}
       </tbody>
     </table>
-    {/* <div><button type="submit" className="btn btn-primary">{randomRecipe}</button></div> */}
   </div>
 )
 

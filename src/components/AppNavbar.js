@@ -1,15 +1,4 @@
 import React, { Component } from 'react';
-// import {
-//   Collapse, //hamburger menu
-//   Navbar, // navbar
-//   NavbarToggler, // hamburger menu
-//   NavbarBrand, // brand
-//   Nav, // wrap around links
-//   NavItem, // wrap the nav link
-//   NavLink, // href attribute
-//   Container // bootstrap container to move it all to the middle
-// } from 'reactstrap';
-
 import { Link } from 'react-router-dom';
 
 class AppNavbar extends Component {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -67,7 +68,9 @@ class UserPage extends Component {
             recipeList={recipeList}
             // randomRecipe={this.randomRecipe}
           />
-        <button><Link className="navbar-brand" to="/randomrecipe">GENERATE A RECIPE!!!!!</Link></button>
+        <div className="random-button">
+          <button><Link className="navbar-brand" to="/randomrecipe">GENERATE A RECIPE!!!!!</Link></button>
+        </div>
         </div>
       );
     }

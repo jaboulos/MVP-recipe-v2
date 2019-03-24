@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../App.css';
+
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -60,7 +62,7 @@ class RandomRecipe extends Component {
     return (
       <div>
         {this.renderView()}
-        <button onClick={this.refreshPage}><span>GET ANOTHER RECIPE!!!!</span> </button>
+        <div className="random-button"><button onClick={this.refreshPage}><span>GET ANOTHER RECIPE!!!!</span> </button></div>
       </div>
     );
   }

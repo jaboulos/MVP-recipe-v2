@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { listenerCount } from 'cluster';
 
 const Recipes = ({recipeList}) => (
-  <div>
+  <div className="recipe-page">
     <table className="table">
 
       <tbody>
@@ -10,7 +10,7 @@ const Recipes = ({recipeList}) => (
           <tr key={item.id}>
             <td>
               <div>
-                <img className="rounded-circle" width={100} height={100} src={`${item.recipeImage}`} />
+                <img className="rounded-circle" width={400} height={400} src={`${item.recipeImage}`} />
               </div>
               <div>
                 <h2><strong>RECIPE SUBMITTED BY:<h5>{item.email}</h5> </strong></h2>

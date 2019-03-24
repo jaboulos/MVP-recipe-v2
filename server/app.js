@@ -31,6 +31,7 @@ app.use(bodyParser.json());
 app.get('/recipes',  (req, res, next) => {
     User.find({}, (err, data) => {})
     .limit(1)
+    .sort({email: 1})
     .then((data) => {
       res.send(data);
     })

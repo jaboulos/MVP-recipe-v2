@@ -3,11 +3,30 @@
   color: #fff;
   background-image: linear-gradient(rgb(56, 95, 255), rgb(133, 201, 197));
   text-align: center;
-  padding: 5%;
+  padding: 1%;
 }
 
 .Audioplayer-title {
-  font-size: 28px
+  font-size: 48px
+}
+
+.homepage {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-greeting {
+  /* display: flex;
+  justify-content: center; */
+  padding: 1%
+}
+
+.homepage-image {
+  width: 1550px;
+  height: 1550px;
+  border: 5px solid rgb(247, 246, 246);
+  border-radius: 30px;
+  object-fit: cover;
 }
 
 .recipe-page {
@@ -17,7 +36,8 @@
 
 .random-recipe {
   text-align: center;
-  padding: 5%;
+  /* padding: 1%; */
+  /* background-image: linear-gradient(rgb(56, 95, 255), rgb(133, 201, 197)); */
 }
 
 .random-button {
@@ -36,7 +56,7 @@
   width: 150px;
   height: 150px;
   border: 5px solid rgb(247, 246, 246);
-  border-radius: 80px;
+  border-radius: 30px;
   object-fit: cover;
 }
 

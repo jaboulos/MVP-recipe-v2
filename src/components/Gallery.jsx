@@ -22,12 +22,7 @@ class Gallery extends Component {
                   className="track"
                   onClick={()=>this.playAudio(track)}
                 >
-                {/* <img
-                  className= 'class-img'
-                  alt='Gallery'
-                  src={'https://s3.us-east-2.amazonaws.com/espn-feed-photos/espn+images/lg1.jpg'}
-                /> */}
-                Track 1
+                PLAY TRACK ONE
                 </div>
 
             )

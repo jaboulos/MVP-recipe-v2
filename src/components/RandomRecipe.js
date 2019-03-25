@@ -16,6 +16,7 @@ class RandomRecipe extends Component {
     };
     // this.randomRecipe = this.randomRecipe.bind(this)
     this.refreshPage = this.refreshPage.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
 
   componentDidMount() {
@@ -49,6 +50,7 @@ class RandomRecipe extends Component {
           <RandomComponent
             randomList={randomList}
             // randomRecipe={this.randomRecipe}
+
           />
         </div>
       );
@@ -63,7 +65,8 @@ class RandomRecipe extends Component {
     return (
       <div>
         {this.renderView()}
-        <div className="random-button"><button onClick={this.refreshPage}><span>GET ANOTHER RECIPE!!!!</span> </button></div>
+        {/* <div className="random-button"><button onClick={this.refreshPage}><span>GET ANOTHER RECIPE!!!!</span> </button></div> */}
+        <div className="random-button"><button onClick={this.componentDidMount}><span>GET ANOTHER RECIPE!!!!</span> </button></div>
       </div>
     );
   }

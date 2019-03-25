@@ -93,7 +93,7 @@ search() {
                   }
                 }}
               />
-            <Button onClick={()=> this.search()}>PLAY SOME MUSIC!</Button>
+            <Button onClick={()=> this.search()}>FIND SOME MUSIC!</Button>
           </InputGroup>
         </FormGroup>
         {/* dont want to see templating on the page unless there is an artist fetched */}

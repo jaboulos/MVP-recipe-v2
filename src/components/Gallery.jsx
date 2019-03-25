@@ -51,7 +51,12 @@ class Gallery extends Component {
                   <div>PLAY TRACK</div>
                   <div className="track-play">
                     <div className="track-play-inner">
-                      &#9654;
+                      {/* &#9654; */}
+                      {
+                        this.state.playingUrl === track
+                          ? <span>||</span>
+                          : <span>&#9654;</span>
+                      }
                     </div>
                     </div>
                 </div>

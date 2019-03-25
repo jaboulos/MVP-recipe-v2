@@ -19,7 +19,7 @@ class AudioPlayer extends Component {
     this.state = {
       query: '',
       artist: null,
-      tracks:['https://s3.us-east-2.amazonaws.com/mvp-tracks/campfire-story.mp3']
+      tracks:['https://s3.us-east-2.amazonaws.com/mvp-tracks/E.M.D.+-+Dancing+In+The+Moonlight+my-free-mp3s.com+.mp3', 'https://s3.us-east-2.amazonaws.com/mvp-tracks/Daft+Punk+-+Get+Lucky+my-free-mp3s.com+.mp3']
     }
 
   }
@@ -30,7 +30,7 @@ search() {
   let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
   const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
 
-  var accessToken = 'BQAuKHyIXWLoyvSCWGnODmZJfC_vEsxtV2-dyWOttm1lYImaTboGR7LjZOIQJ03N4FMyxjFC7hPsi33DI72IZe6AwY8vMCcWApy0Aqe6BW5gWFxHG0hbyIewucGiC5nd6yJp4ahF-7hlARHTJ3dPjMjITlnn7I0RZ_R0zivf&refresh_token=AQA25BAh12EqqmTn4n4dAwUGJS0gsYLLxMVTD64FXEbbRB9C43_2pwKbV1-y601h8KhDZ4B8SoBFbcdRs2Th72sm_D6CMaNasHeX_LuDvtW0nGCV5HTGXkYo19BW7X9nHwnwtQ'
+  var accessToken = 'BQAmAqI8lQg-HxERMY01_OGotfriMrepW63ue0JeirZAa-GEAq6mgViApQx3vrPnVQ5Igh0I4MLnEdwXtvBcVNU1SMgxeWhH7RBtogfQTjD4FOvmL3aL5Wu6N4XjhCOkS8ZdDbu2zIIlf1_reOhyxQ2nf_rlMEUXYjyt6y4S&refresh_token=AQCQAYto3uUIK7d3kSvwKKuw-q1j4pFi-1HIL-A540mqVFGyPpyccQjxwhEHPgN0-7nGr-j2UN4Ubkkz1P5ZmSnlVck9zE_WMqdVuqV7oCPYJe1NuU90g2iuRA6xkl4fCFFeig'
   console.log(FETCH_URL);
   var myOptions = {
     method: 'GET',

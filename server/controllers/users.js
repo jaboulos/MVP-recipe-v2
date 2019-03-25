@@ -38,14 +38,14 @@ module.exports = {
     // const email = req.value.body.email;
     // const password = req.value.body.password;
 
-    const { email, password, recipes } = req.value.body;
+    const { email, password, recipesName, recipeIngredients, recipeTime, recipeInstructions, recipeImage, comments } = req.value.body;
 
-    /*
-    const newUser = new User({
-      email: String,
-      password: String
-    });
-    */
+
+    // const newUser = new User({
+    //   email: String,
+    //   password: String
+    // });
+
 
       // this function needs the users email and password
       // const foundUser = await User.findOne({
@@ -63,7 +63,7 @@ module.exports = {
       })
     }
 
-    const newUser = new User({ email, password, recipes });
+    const newUser = new User({ email, password, recipesName, recipeIngredients, recipeTime, recipeInstructions, recipeImage, comments  });
     await newUser.save();
 
     console.log('*****~~ signUp path, post request, THIS IS req.value.body~~***** =====> ', req.value.body)

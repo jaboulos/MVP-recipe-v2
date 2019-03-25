@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 // routes
   // routes for signing up, signing in, secret (if user is authenticated)
-// app.use('/users', require('./routes/users'));
+app.use('/', require('./routes/users'));
 
 app.get('/recipes',  (req, res, next) => {
     User.find({}, (err, data) => {})

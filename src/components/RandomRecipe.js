@@ -30,6 +30,7 @@ class RandomRecipe extends Component {
       .then((res) => {
         // eslint-disable-next-line prefer-destructuring
         const data = res.data;
+        console.log('data : ', data)
         this.setState({
           randomList: data,
         });

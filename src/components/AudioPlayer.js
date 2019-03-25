@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { FormGroup, FormControl, InputGroup, Button } from 'react-bootstrap';
 import Profile from './Profile';
+import Gallery from './Gallery';
 
 // spotify endpoint, dont need api key
 // https://api.spotify.com/v1/search
@@ -17,8 +18,10 @@ class AudioPlayer extends Component {
     super(props);
     this.state = {
       query: '',
-      artist: null
+      artist: null,
+      tracks:['https://s3.us-east-2.amazonaws.com/mvp-tracks/campfire-story.mp3']
     }
+
   }
 
 search() {
@@ -27,7 +30,7 @@ search() {
   let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
   const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
 
-  var accessToken = 'BQBlEjNXHjrexstVrJmADIFrdLnK8S8nmmWiUVtxAyMUs8SH4nL2lHzbhGdfhAOQh3NutOkT_EGe88ZwUcX2O47KgX87lpPgD8tXgF_idmRj1aCK8L3RqGiNvDM_jo9K1YWJfXzfeawcby4F35n5Z6zurCD7GINvQsvuVyOe&refresh_token=AQD4SpNd84hLwMiuG1dXY1f_w1oDm86k-tzh9SrTMls8F6jPvtfwl3UWLh9mY2ZV1UHd6Z7BZrD1OvPlEIP2H3EwiDerTjWN_9puoCcNVLOvWhYSbosvhFKFVqEuzTinZElxog'
+  var accessToken = 'BQDOG-C7XNkoAdnhRZiXbEJoYo7bT8vfJ3vf81amcuavnRW5tHfE4I-uGexqPXdsm7lHK-oBULPaX4JNALC-j2CTDU60DW-0utd77HHW-86vtz6lFlthA8Lwz9b1NfH8sG3KkRXJFcIfZtFz1O0dEwLoh-b1Bt-91gmOoMNU&refresh_token=AQDeczEjCyw0fTRzhNWw5YcZBGTqGhZS4gqimVmk2Ph6rOLcIA_Y-IVu2NV4jyYLNm2uUOjpSA5ZOAMCcWS6M1idVRgeIIkCB0JrVV_CwHw23uCQai-EGpqMgCyCt5noJE55tQ'
   console.log(FETCH_URL);
   var myOptions = {
     method: 'GET',
@@ -55,6 +58,8 @@ search() {
       //   })
     })
 }
+
+
 
   render() {
     let artist = {
@@ -101,12 +106,17 @@ search() {
               <Profile
                 artist={this.state.artist}
               />
-              <div className="Gallery">
-                Gallery
-              </div>
+
+                <Gallery
+                  tracks={this.state.tracks}
+                />
+
             </div>
           : <div></div>
         }
+        <div className='tracks'>
+
+        </div>
 
       </div>
     )

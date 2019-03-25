@@ -11,7 +11,7 @@ const RandomComponent = ({randomList}) => (
           <tr key={item._id}>
             <td>
               <div>
-                <img className="rounded-circle" width={300} height={300} src={`${item.recipeImage}`} />
+                <img className="rounded-circle" width={400} height={400} src={`${item.recipeImage}`} />
               </div>
               <div>
                 <h2><strong>RECIPE SUBMITTED BY:<h5>{item.email}</h5> </strong></h2>

@@ -24,12 +24,16 @@ class AudioPlayer extends Component {
 search() {
   // console.log('this.state', this.state);
   const BASE_URL = 'https://api.spotify.com/v1/search?';
-  const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
-  var accessToken = 'BQAdEG1-xSG3uk0ACbyxiR1IZVdhUYwPzL1Gb-hM7eLgEMycvf3q7Tt_nCg1gY3I88obaSbIZPEKkuOe7uUWoY9YMoZt4cQQEg-YhQDqN3EjDfNZF4k2LZghwv7rhobOh4gKCXpNM8bRRWsp0eeK1PqfWpSxubmBwRkdM6jI&refresh_token=AQCXtudRTLvZ2P19h0xgz-XWExN3YFfgvNSQjNkiUChvGzfKFerk0fNDfIdgtBJt6f9TjLTuqnSvAViNjTKoO0iD0vOCFSruSAN4pqvpRea6wP3ttqPvLhM9TdO_32zXjpTbBQ'
+  let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
+  const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
+
+  var accessToken = 'BQBlEjNXHjrexstVrJmADIFrdLnK8S8nmmWiUVtxAyMUs8SH4nL2lHzbhGdfhAOQh3NutOkT_EGe88ZwUcX2O47KgX87lpPgD8tXgF_idmRj1aCK8L3RqGiNvDM_jo9K1YWJfXzfeawcby4F35n5Z6zurCD7GINvQsvuVyOe&refresh_token=AQD4SpNd84hLwMiuG1dXY1f_w1oDm86k-tzh9SrTMls8F6jPvtfwl3UWLh9mY2ZV1UHd6Z7BZrD1OvPlEIP2H3EwiDerTjWN_9puoCcNVLOvWhYSbosvhFKFVqEuzTinZElxog'
   console.log(FETCH_URL);
   var myOptions = {
     method: 'GET',
     headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
       'Authorization': 'Bearer ' + accessToken
     },
     mode: 'cors',
@@ -39,9 +43,16 @@ search() {
   fetch(FETCH_URL, myOptions)
     .then(response => response.json())
     .then(json => {
-      const artist = json.artists.items[0];
+      let artist = json.artists.items[0];
       this.setState({ artist });
       console.log('this.state', this.state);
+
+      // FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`
+
+      // fetch(FETCH_URL, myOptions)
+      //   .then(json => {
+      //     console.log('top tracks: ', json)
+      //   })
     })
 }
 
@@ -80,12 +91,23 @@ search() {
             <Button onClick={()=> this.search()}>PLAY SOME MUSIC!</Button>
           </InputGroup>
         </FormGroup>
-        <Profile
-          artist={this.state.artist}
-        />
-        <div className="Gallery">
-          Gallery
-        </div>
+        {/* dont want to see templating on the page unless there is an artist fetched */}
+
+        {
+          this.state.artist !== null
+          ?
+            <div>
+
+              <Profile
+                artist={this.state.artist}
+              />
+              <div className="Gallery">
+                Gallery
+              </div>
+            </div>
+          : <div></div>
+        }
+
       </div>
     )
   }

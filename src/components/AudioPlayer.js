@@ -55,7 +55,7 @@ search() {
   // console.log('this.state', this.state);
   const BASE_URL = 'https://api.spotify.com/v1/search?';
   const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
-  var accessToken = 'BQCXXDjU9wbR4i7MmZrjCYAr04zQAv6KH1L5wOeQO5BUKbNWuGqilZZLkZA5ufTESocA-UKjs8y50puWGZSKgs31O-JGmOxesLgn1ljx20FNuhZQfsxQE3pWTO4HWSHmhYjlRlnX3jUixjoVpOsDuvRxlUKOIbNI8x96gG4Z&refresh_token=AQBR0PIzmZFGPrmR6Cl_lDBfTlCVIzdmMplygur8VHxDk3Vv-eqWPR_58Sl2WbgVcaFgCXJHi7_s6hv8Gcc_jytmYy-lgF3d9ZAPe_-1tI'
+  var accessToken = 'BQAdEG1-xSG3uk0ACbyxiR1IZVdhUYwPzL1Gb-hM7eLgEMycvf3q7Tt_nCg1gY3I88obaSbIZPEKkuOe7uUWoY9YMoZt4cQQEg-YhQDqN3EjDfNZF4k2LZghwv7rhobOh4gKCXpNM8bRRWsp0eeK1PqfWpSxubmBwRkdM6jI&refresh_token=AQCXtudRTLvZ2P19h0xgz-XWExN3YFfgvNSQjNkiUChvGzfKFerk0fNDfIdgtBJt6f9TjLTuqnSvAViNjTKoO0iD0vOCFSruSAN4pqvpRea6wP3ttqPvLhM9TdO_32zXjpTbBQ'
   console.log(FETCH_URL);
   var myOptions = {
     method: 'GET',
@@ -81,7 +81,7 @@ search() {
       followers: {
         total: ''
       }
-    };
+    } || null;
     if (this.state.artist !== null) {
       artist = this.state.artist;
     }

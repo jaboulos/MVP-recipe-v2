@@ -20,46 +20,20 @@ class AudioPlayer extends Component {
       artist: null
     }
   }
-/*
-  // test to see if query is working
-  search() {
-    // console.log("THIS IS THE STATE: ", this.state);
-    // declare spotify search endpoint as a base url
-    // question mark at the end of the url allows for more parameters
-    const BASE_URL = 'https://api.spotify.com/v1/search?';
-    // declare fetch url
-    const FETCH_URL = `${BASE_URL}q=this.state.query&type=artist&limit=1`
-    console.log('FETCH_URL: ', FETCH_URL)
-
-    const accessToken = 'BQCXXDjU9wbR4i7MmZrjCYAr04zQAv6KH1L5wOeQO5BUKbNWuGqilZZLkZA5ufTESocA-UKjs8y50puWGZSKgs31O-JGmOxesLgn1ljx20FNuhZQfsxQE3pWTO4HWSHmhYjlRlnX3jUixjoVpOsDuvRxlUKOIbNI8x96gG4Z&refresh_token=AQBR0PIzmZFGPrmR6Cl_lDBfTlCVIzdmMplygur8VHxDk3Vv-eqWPR_58Sl2WbgVcaFgCXJHi7_s6hv8Gcc_jytmYy-lgF3d9ZAPe_-1tI'
-
-    //   var myOptions = {
-    //     method: 'GET',
-    //     headers: {
-    //       'authorization': accessToken
-    //     },
-    //     mode: 'cors',
-    //     cache: 'deafult'
-    //   }
-
-    //   fetch(FETCH_URL, myOptions)
-    //     .then(response => response.json())
-    //     .then(json => {
-    //       const artist = json.artists.items[0]
-    //       this.setState({ artist })
-    //     })
-  }
-*/
 
 search() {
   // console.log('this.state', this.state);
   const BASE_URL = 'https://api.spotify.com/v1/search?';
-  const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
-  var accessToken = 'BQCXXDjU9wbR4i7MmZrjCYAr04zQAv6KH1L5wOeQO5BUKbNWuGqilZZLkZA5ufTESocA-UKjs8y50puWGZSKgs31O-JGmOxesLgn1ljx20FNuhZQfsxQE3pWTO4HWSHmhYjlRlnX3jUixjoVpOsDuvRxlUKOIbNI8x96gG4Z&refresh_token=AQBR0PIzmZFGPrmR6Cl_lDBfTlCVIzdmMplygur8VHxDk3Vv-eqWPR_58Sl2WbgVcaFgCXJHi7_s6hv8Gcc_jytmYy-lgF3d9ZAPe_-1tI'
+  let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
+  const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
+
+  var accessToken = 'BQBlEjNXHjrexstVrJmADIFrdLnK8S8nmmWiUVtxAyMUs8SH4nL2lHzbhGdfhAOQh3NutOkT_EGe88ZwUcX2O47KgX87lpPgD8tXgF_idmRj1aCK8L3RqGiNvDM_jo9K1YWJfXzfeawcby4F35n5Z6zurCD7GINvQsvuVyOe&refresh_token=AQD4SpNd84hLwMiuG1dXY1f_w1oDm86k-tzh9SrTMls8F6jPvtfwl3UWLh9mY2ZV1UHd6Z7BZrD1OvPlEIP2H3EwiDerTjWN_9puoCcNVLOvWhYSbosvhFKFVqEuzTinZElxog'
   console.log(FETCH_URL);
   var myOptions = {
     method: 'GET',
     headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
       'Authorization': 'Bearer ' + accessToken
     },
     mode: 'cors',
@@ -69,9 +43,16 @@ search() {
   fetch(FETCH_URL, myOptions)
     .then(response => response.json())
     .then(json => {
-      const artist = json.artists.items[0];
+      let artist = json.artists.items[0];
       this.setState({ artist });
       console.log('this.state', this.state);
+
+      // FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`
+
+      // fetch(FETCH_URL, myOptions)
+      //   .then(json => {
+      //     console.log('top tracks: ', json)
+      //   })
     })
 }
 
@@ -81,7 +62,7 @@ search() {
       followers: {
         total: ''
       }
-    };
+    } || null;
     if (this.state.artist !== null) {
       artist = this.state.artist;
     }
@@ -107,64 +88,29 @@ search() {
                   }
                 }}
               />
-              {/* react-bootstrap has some cool add-ons, this inputgroup.add-on changes the button icon on this form, find more in the react bootstrap documentation library */}
-            {/* <InputGroup.Addon>
-              <Glyphicon glyph="search"></Glyphicon>
-            </InputGroup.Addon> */}
             <Button onClick={()=> this.search()}>PLAY SOME MUSIC!</Button>
           </InputGroup>
         </FormGroup>
-        {/* <div className="Profile">
-          <div>Artist: {artist.name}</div>
-          <div>Followers: {artist.followers.total}</div>
-        </div> */}
-        <Profile
-          artist={this.state.artist}
-        />
-        <div className="Gallery">
-          Gallery
-        </div>
+        {/* dont want to see templating on the page unless there is an artist fetched */}
+
+        {
+          this.state.artist !== null
+          ?
+            <div>
+
+              <Profile
+                artist={this.state.artist}
+              />
+              <div className="Gallery">
+                Gallery
+              </div>
+            </div>
+          : <div></div>
+        }
+
       </div>
     )
   }
-  // render() {
-
-  //   let artist = {
-  //     name: '',
-  //     followers: {
-  //       total: ''
-  //     }
-  //   };
-  //   if (this.state.artist !== null) {
-  //     artist = this.state.artist;
-  //   }
-
-  //   return (
-  //     // return JSX
-  //     <div className="container">
-  //       <hr />
-  //       <div className="col-lg-6">
-  //         <div className="input-group">
-  //           <input type="text"
-  //             onChange={event => { this.setState({ query: event.target.value }) }}
-  //           className="form-control" placeholder="Search for..." />
-  //           <span className="input-group-btn">
-  //             <button
-  //             onClick={()=> this.search()}
-  //              className="btn btn-default" type="button">Go!</button>
-  //           </span>
-  //         </div>
-  //       </div>
-  //       <hr />
-  //       <div>
-  //         <div> {artist.name}   </div>
-  //         <div> {artist.followers.total} </div>
-  //       </div>
-
-
-  //       </div>
-  //   )
-  // }
 }
 
 export default AudioPlayer;

@@ -37,7 +37,8 @@ module.exports = {
       recipesIngredients: Joi.string(),
       recipesTime: Joi.string(),
       recipesInstructions: Joi.string(),
-      recipesImage: Joi.string()
+      recipesImage: Joi.string(),
+      comments: Joi.string()
     })
   }
 }

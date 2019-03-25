@@ -8,7 +8,7 @@ db.once('open', () => {
   console.log('MongoDB is connected to the Users database');
 });
 //import bcryptjs for salt and hashing of the pw
-//const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 const Schema = mongoose.Schema;
 
@@ -35,10 +35,13 @@ const userSchema = new Schema({
   },
   recipeImage: {
     type: String
+  },
+  comments: {
+    type: String
   }
 })
 
-/*
+
 // need to run the salt + hash before the save function,
 // .pre() lets you specify what function waits, what function gets run first
 userSchema.pre('save', async function(next) {
@@ -70,7 +73,7 @@ userSchema.methods.isValidPassword = async function(notHashedPassword) {
     throw new Error(error);
   }
 }
-*/
+
 // create a model
 const User = mongoose.model('user', userSchema)
 

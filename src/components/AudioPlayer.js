@@ -30,7 +30,7 @@ search() {
   let FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
   const ALBUM_URL = 'https://api.spotify.com/v1/artists/'
 
-  var accessToken = 'BQDOG-C7XNkoAdnhRZiXbEJoYo7bT8vfJ3vf81amcuavnRW5tHfE4I-uGexqPXdsm7lHK-oBULPaX4JNALC-j2CTDU60DW-0utd77HHW-86vtz6lFlthA8Lwz9b1NfH8sG3KkRXJFcIfZtFz1O0dEwLoh-b1Bt-91gmOoMNU&refresh_token=AQDeczEjCyw0fTRzhNWw5YcZBGTqGhZS4gqimVmk2Ph6rOLcIA_Y-IVu2NV4jyYLNm2uUOjpSA5ZOAMCcWS6M1idVRgeIIkCB0JrVV_CwHw23uCQai-EGpqMgCyCt5noJE55tQ'
+  var accessToken = 'BQAuKHyIXWLoyvSCWGnODmZJfC_vEsxtV2-dyWOttm1lYImaTboGR7LjZOIQJ03N4FMyxjFC7hPsi33DI72IZe6AwY8vMCcWApy0Aqe6BW5gWFxHG0hbyIewucGiC5nd6yJp4ahF-7hlARHTJ3dPjMjITlnn7I0RZ_R0zivf&refresh_token=AQA25BAh12EqqmTn4n4dAwUGJS0gsYLLxMVTD64FXEbbRB9C43_2pwKbV1-y601h8KhDZ4B8SoBFbcdRs2Th72sm_D6CMaNasHeX_LuDvtW0nGCV5HTGXkYo19BW7X9nHwnwtQ'
   console.log(FETCH_URL);
   var myOptions = {
     method: 'GET',
